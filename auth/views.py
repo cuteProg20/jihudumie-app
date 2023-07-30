@@ -15,7 +15,7 @@ class RegisterPage(FormView):
     success_url = reverse_lazy('index')
 
     def form_valid(self, form):
-        user = form.save()
+        user = form.save() # type: ignore
         if user is not None:
             login (self.request, user)
         return super(RegisterPage, self).form_valid(form)
